@@ -21,6 +21,9 @@
 #let bitbucket-icon = box(
   fa-icon("bitbucket", fill: color-darknight),
 )
+#let codeberg-icon = box(
+  fa-icon("codeberg", fill: color-darknight),
+)
 #let twitter-icon = box(
   fa-icon("twitter", fill: color-darknight),
 )
@@ -143,6 +146,17 @@
     #fa-icon("github", fill: color-darkgray) #link(
       "https://github.com/" + github-path,
       github-path,
+    )
+  ]
+}
+
+#let codeberg-link(codeberg-path) = {
+  set box(height: 11pt)
+  
+  align(right + horizon)[
+    #fa-icon("codeberg", fill: color-darkgray) #link(
+      "https://codeberg.org/" + codeberg-path,
+      codeberg-path,
     )
   ]
 }
@@ -402,6 +416,11 @@
             #separator
             #bitbucket-icon
             #box[#link("https://bitbucket.org/" + author.bitbucket)[#author.bitbucket]]
+          ]
+          #if ("codeberg" in author) [
+            #separator
+            #codeberg-icon
+            #box[#link("https://codeberg.org/" + author.codeberf)[#author.codeberg]]
           ]
           #if ("linkedin" in author) [
             #separator
